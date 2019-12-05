@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>welcome to poem.io</title>
+
+    <link rel="stylesheet" type="text/css" href=".css">
+</head>
+<body>
+    <style>
+        .intro {
+            text-align: center;
+        }
+        .name {
+            width: 50%;
+        }
+        p {
+            font-size: 85%;
+        }
+        h1 {
+            font-size: 150%;
+        }
+    </style>
+    <div class="container intro">
+        <h1>welcome to poem.io, a poem randomizer</h1>
+        <p>poem.io will print your poem in whichever way you want</p>
+        <p>all you need to do is put the poem as text inside the box and select which way you want to format/randomize it</p>
+        <br>
+    </div>
+
+<form action="/display" method="POST" class="form-style">
+    <ul>
+        <fieldset>
+            <legend>poem</legend>
+            <textarea class="tarea"
+            rows = "10"
+            cols = "50" placeholder="[your poem here]"></textarea>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>shuffle</legend>
+            <p>how would you like to shuffle the poem?</p>
+            <input type="checkbox" checked="checked" name="choice" id="backwards" >print [backwards]
+                <span class="checkmark"></span>
+            <input type="checkbox" name="choice" id="random">print [random line order]
+                <span class="checkmark"></span>
+            <input type="checkbox" name="choice" id="special">print [our special shuffle]
+                <span class="checkmark"></span>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>
+                submit
+            </legend>
+            <input type="submit" />
+        </fieldset>
+        
+        <fieldset>
+                <legend>name</legend>
+            <div class="name">
+                first name: <input type="text" name="firstname" placeholder="first name">
+            </div>
+            <div class="name">
+                last name: <input type="text" name="lastname" placeholder="last name" />
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>birth</legend>
+            <div class="birth">
+                <label for="birth">date of birth:</label>
+                <br>
+                <input type="date" id="birth" name="dob" value="2019-10-21" min="01-01-01" max="2019-10-22">
+                <br>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>color</legend>
+            <label for="col">pick your favourite colour:</label>
+            <div>
+                <input type="radio" id="col" name="color" value="red">red
+                <input type="radio" id="col" name="color" value="green">green
+                <input type="radio" id="col" name="color" value="orange">orange
+                <input type="radio" id="col" name="color" value="own">enter your own: <input type="text" name="color" placeholder="enter a colour">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>the end</legend>
+            <label for="check">did you enjoy this quiz?</label>
+            <input type="checkbox" name="yes">yes
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>
+                submit
+            </legend>
+            <input type="submit" />
+        </fieldset>
+    </ul>
+
+    <script>
+    /* Customize the label (the container) */
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked ~ .checkmark {
+        background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    </script>
+</form>
+
+</body>
+</html>
